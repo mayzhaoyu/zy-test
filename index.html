@@ -37,17 +37,16 @@ html,body{
         });
     	};
 	   
-	var isWechart = function () {
-		var rst = true
-		if(window.navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)){
-		var ua = navigator.userAgent.toLowerCase();
-		if (!(ua.match(/MicroMessenger/i) == "micromessenger")) {
-			rst = false;
+	var isWechart = function isWeiXin(){
+		var ua = window.navigator.userAgent.toLowerCase();
+		if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+			return true;
+		}else{
+			return false;
 		}
-		}else {
-		rst = false;
-		}
-		return rst;
+	}
+	if (isWechart) {
+		autoPlayAudio1(); // 推荐使用方法1
 	};
 	if (isWechart) {
 		autoPlayAudio1(); // 推荐使用方法1
