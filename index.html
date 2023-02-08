@@ -39,13 +39,13 @@ html,body{
 	   
 	var isWechart = function isWeiXin(){
 		var ua = window.navigator.userAgent.toLowerCase();
-		if(ua.match(/MicroMessenger/i) == 'micromessenger'){
+		if(ua.match(/micromessenger/i)[0] == 'micromessenger'){
 			return true;
 		}else{
 			return false;
 		}
 	}
-	alert(window.navigator.userAgent.toLowerCase());
+	
 	if (isWechart) {
 		autoPlayAudio1(); // 推荐使用方法1
 	};
