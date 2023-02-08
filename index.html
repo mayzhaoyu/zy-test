@@ -20,7 +20,23 @@ html,body{
 	<audio preload autoplay loop id="vd">
 		<source src="./31252333.mp3" type="audio/mpeg">
    </audio>
+   <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
    <script type="text/javascript">
+   function autoPlayAudio1() {
+        wx.config({
+            // 配置信息, 即使不正确也能使用 wx.ready
+            debug: false,
+            appId: '',
+            timestamp: 1,
+            nonceStr: '',
+            signature: '',
+            jsApiList: []
+        });
+        wx.ready(function() {
+            document.getElementById('vd').play();
+        });
+    	}
+	autoPlayAudio1(); // 推荐使用方法1
     window.onload = function(){
              setInterval("toggleSound()",100);
         }
@@ -30,19 +46,6 @@ html,body{
                 music.play(); //没有就播放
                 if (music.paused) { //判读是否播放  
                     music.paused=false;
-		    my_play = function(){
-						music.play();
-						document.removeEventListener("touchstart",my_play, false);
-					};
-					// 使用微信WeixinJSBridgeReady 监听在微信浏览器中页面加载完成之后执行
-					document.addEventListener("WeixinJSBridgeReady", function () {//微信
-						my_play();
-					}, false);
-					document.addEventListener('YixinJSBridgeReady', function() {//易信
-						my_play();
-					}, false);
-					// 监听 touchstart 事件，在用户触摸到项目页面的时候触发
-					document.addEventListener("touchstart",my_play, false);
                     music.play(); //没有就播放 
                 }    
         }
