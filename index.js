@@ -24,7 +24,7 @@ var S = {
     if (i !== -1) {
       S.UI.simulate(decodeURI(action).substring(i + 3));
     } else {
-      S.UI.simulate('|默|默|生|日|快|乐|');
+      S.UI.simulate('|*|生|日|快|乐|');
     }
 
     S.Drawing.loop(function () {
